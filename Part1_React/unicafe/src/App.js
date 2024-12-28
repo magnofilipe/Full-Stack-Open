@@ -8,6 +8,19 @@ const Feedback = ({handleClick, text}) => (
   <button onClick={handleClick}>{text}</button>
 )
 
+const Statistics = (props) => {
+  return (
+  <>
+    <p>good {props.good}</p>
+    <p>neutral {props.neutral}</p>
+    <p>bad {props.bad}</p>
+    <p>all {props.all}</p>
+    <p>average {props.average}</p>
+    <p>positive {props.positive} %</p>
+  </>
+  )
+}
+
 const App = () => {
   const [feedback, setFeedback] = useState({
     good: 0, neutral: 0, bad: 0, scoreboard: 0
@@ -35,12 +48,15 @@ const App = () => {
       <Feedback handleClick={handleBadFeedback} text={"bad"}></Feedback>
 
       <Title text="Statistics"></Title>
-      <p>good {feedback.good}</p>
-      <p>neutral {feedback.neutral}</p>
-      <p>bad {feedback.bad}</p>
-      <p>all {total}</p>
-      <p>average {average}</p>
-      <p>positive {positive} %</p>
+      <Statistics 
+        good={feedback.good}
+        neutral={feedback.neutral}
+        bad={feedback.bad}
+        all={total}
+        average={average}
+        positive={positive}
+        >
+      </Statistics>
     </div>
   )
 }
