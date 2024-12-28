@@ -9,6 +9,9 @@ const Feedback = ({handleClick, text}) => (
 )
 
 const Statistics = (props) => {
+  if (props.all === 0) {
+    return <p>No feedback given</p>
+  }
   return (
   <>
     <p>good {props.good}</p>
