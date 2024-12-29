@@ -4,12 +4,16 @@ function getRandomInteger(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
 
-  return Math.floor(Math.random() * (max - min)) + min
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const Button = ({handleClick, text}) => {
-  return <button onClick={handleClick}>{text}</button>
-}
+const Title = ({text}) => (
+  <h2>{text}</h2>
+)
+
+const Button = ({handleClick, text}) => (
+  <button onClick={handleClick}>{text}</button>
+)
 
 const App = () => {
   const anecdotes = [
@@ -37,12 +41,30 @@ const App = () => {
     setVotes(copy) 
   }
 
+  // We don't create a copy because we are only reading the values and not modifying them.
+  const findMostVotedIndex = () => {
+    let mostVotedIndex = 0
+    for (let i = 1; i < votes.length; i++) {
+      if (votes[i] > votes[mostVotedIndex]) {
+        mostVotedIndex = i
+      }
+    }
+    return mostVotedIndex
+  }
+
+  const mostVotedIndex = findMostVotedIndex()
+
   return (
     <>
-      <h3>{anecdotes[selected]}</h3>
-      <h3>has {votes[selected]} votes</h3>
+      <Title text="Anecdote of the day"></Title>
+      <p>{anecdotes[selected]}</p>
+      <p>has {votes[selected]} votes</p>
       <Button handleClick={handleVote} text={"vote"}></Button>
       <Button handleClick={handleClick} text={"next anecdote"}></Button>
+
+      <Title text="Anecdote with most votes"></Title>
+      <p>{anecdotes[mostVotedIndex]}</p>
+      <p>has {votes[mostVotedIndex]} votes</p>
     </>
   )
 }
