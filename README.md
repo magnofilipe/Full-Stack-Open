@@ -11,3 +11,12 @@ This directory contains all exercises from [Part 0](https://fullstackopen.com/pt
 - SPA (Single Page Applications)
 - JavaScript Fatigue
 
+### Part1-React
+Contains all exercises from [Part 1](https://fullstackopen.com/ptbr/part1). Core concepts:
+- JavaScript and JSX
+- Components
+- useState Hook
+- Destructuring
+- Event handling
+- Conditional rendering
+- Debbugging React applications
