@@ -21,7 +21,7 @@ Contains all exercises from [Part 1](https://fullstackopen.com/ptbr/part1). Core
 - Conditional rendering
 - Debbugging React applications
 
-### Part2-React
+### Part2-Server
 Contains exercises from [Part 2](https://fullstackopen.com/ptbr/part2). Core concepts:
 - Controlled component
 - map, filter, reduce on React
